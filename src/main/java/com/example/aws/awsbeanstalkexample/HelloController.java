@@ -10,6 +10,6 @@ public class HelloController {
 
 	@GetMapping
 	public String hello() {
-		return "i am from AWS controller with Beanstalk";
+		return "i am from AWS controller. Deployed to Beanstalk and pipeline activated";
 	}
 }
