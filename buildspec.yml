@@ -1,17 +1,16 @@
 version: 0.2
-
 phases:
-   pre_build:
-     commands:
-      - echo "Entering into pre-build"
-   build:
-     commands:
-      - echo "entering into build phase"
-      - -e clean install
-   post_build:
-     commands:
-      - echo "entering in postbuild"
-      - mvn package
+  pre_build:
+    commands:
+    - echo "Entered the pre-build phase"
+  build:
+    commands:
+    - echo "Entered build phase"
+    - mvn clean prepare-package war:exploded
+  post_build:
+    commands:
+    - echo "Entered the post-build phase"
+    - mv target/deploy ./
 artifacts:
-   files:
-     - target/aws-beanstalk-example-0.0.1-SNAPSHOT.war
+  files:
+    - deploy/**/*
